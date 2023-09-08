@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maple Toys - Main</title>
+  <link rel="stylesheet" href="./styles/fonts.css">
+  <link rel="stylesheet" href="styles/vars.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="icon" href="assets/images/favicon.png">
+</head>
+<body>
+<div id="product-details" class="hidden">
+  <div class="full-width-container white" id="product-details-hfwc">
+    <div class="content-container" id="product-details-hcc">
+      <div id="pd-close-button">Close [ x ]</div>
+      <h3 id="product-details-header">Counting Tray</h3>
+    </div>
+  </div>
+  <div class="full-width-container white">
+    <div class="content-container">
+      <div id="product-details-container">
+        <div id="product-details-img-container">
+          <img src="./assets/images/products/large/0003/0001.jpeg" alt="0003_0001" id="product-details-img">
+          <div id="product-details-container-img-buttons">
+            <div id="product-details-container-img-button-prev"><</div>
+            <div id="product-details-container-img-button-next">></div>
+          </div>
+        </div>
+        <div id="product-details-slider"></div>
+      </div>
+      <div id="product-details-description-container"></div>
+    </div>
+  </div>
+</div>
+
+<div id="cart" class="hidden">
+  <div class="full-width-container white" id="cart-hfwc">
+    <div class="content-container" id="cart-hcc">
+      <div id="cart-close-button">Close [ x ]</div>
+      <h3 id="title-cart">Cart</h3>
+    </div>
+  </div>
+  <div class="full-width-container white">
+    <div class="content-container">
+      <div id="cart-container">
+        <div class="cart-row">
+          <div id="cart-table-image">Image</div>
+          <div id="cart-table-description">Description</div>
+          <div id="cart-table-variation">Variation</div>
+          <div>-</div>
+          <div id="cart-table-qnt">Qnt</div>
+          <div>+</div>
+          <div id="cart-table-price">Price</div>
+          <div id="cart-table-total">Total</div>
+          <div id="cart-table-del">Del</div>
+        </div>
+
+        <div id="cart-products-list">
+        </div>
+
+        <div class="cart-row">
+          <div id="cart-table-sub-total">Sub-Total:</div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div id="cart-subtotal">$ 0</div>
+          <div></div>
+        </div>
+      </div>
+
+      <form id="client-info-checkout-container" method="post" action="https://formspree.io/f/xknyqjql">
+        <div id="client-info">
+          <label for="client-name"></label>
+          <input type="text" placeholder="Full Name" id="client-name" class="required-data" name="Full Name">
+          <label for="client-mail"></label>
+          <input type="email" placeholder="E-mail" id="client-mail" class="required-data" name="E-mail">
+          <label for="client-phone"></label>
+          <input type="text" placeholder="Phone: +375 (29) 123-45-67" id="client-phone" class="required-data" name="Phone">
+          <input hidden id="client-country-name" name="Country">
+          <label for="client-country"></label>
+          <select id="client-country" class="required-data">
+          </select>
+          <label for="client-state"></label>
+          <input type="text" placeholder="State / Province / Region" id="client-state" class="required-data" name="City">
+          <label for="client-address"></label>
+          <input type="text" placeholder="Street / Apartment / Unit" id="client-address" class="required-data" name="Address">
+          <label for="client-zip"></label>
+          <input type="text" placeholder="Zip Code" id="client-zip" class="required-data" name="Zip Code">
+          <textarea hidden id="client-order-details" name="Order details"></textarea>
+          <textarea hidden id="client-order-summary" name="Summary"></textarea>
+        </div>
+        <div id="checkout">
+          <div id="checkout-total">
+            <div id="checkout-total-title">Order details:</div>
+            <hr>
+            <div id="checkout-products-total">Products total: $0</div>
+            <div id="checkout-shipping-total">Shipping total: $0</div>
+            <hr>
+            <div id="checkout-grand-total">Grand total: $0</div>
+          </div>
+          <div id="checkout-warning">Please fill all the data to process the order</div>
+          <div id="checkout-message">In the near future after placing an order, you will receive an invoice and a link to pay for the order to the specified e-mail</div>
+          <button id="checkout-button" type="submit" disabled>Order</button>
+        </div>
+      </form>
+      <form method="POST" action="https://yoomoney.ru/quickpay/confirm.xml">
+        <input type="hidden" name="receiver" value="4100117751358096"/>
+        <input type="hidden" name="formcomment" value="Проект «Железный человек»: реактор холодного ядерного синтеза"/>
+        <input type="hidden" name="short-dest" value="Проект «Железный человек»: реактор холодного ядерного синтеза"/>
+        <input type="hidden" name="label" value="$order_id"/>
+        <input type="hidden" name="quickpay-form" value="donate"/>
+        <input type="hidden" name="targets" value="транзакция {order_id}"/>
+        <input type="hidden" name="sum" value="2" data-type="number"/>
+        <input type="hidden" name="comment" value="Хотелось бы дистанционного управления."/>
+        <label><input type="radio" name="paymentType" value="PC"/>ЮMoney</label>
+        <label><input type="radio" name="paymentType" value="AC"/>Банковской картой</label>
+        <input type="submit" value="Перевести"/>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="page">
+  <div class="full-width-container gray" id="header-container">
+    <div class="content-container">
+      <header>
+        <a href="https://dimmorpheus.github.io/MapleToysUS/" id="header-logo">
+          <h1>MapleToys</h1>
+        </a>
+        <nav id="header-nav">
+          <ul>
+            <li><a href="#home" id="link-home">Home</a></li>
+            <li><a href="#products" id="link-products">Products</a></li>
+            <li><a href="#contacts" id="link-contacts">Contacts</a></li>
+            <li><a href="#about-us" id="link-about-us">About Us</a></li>
+          </ul>
+        </nav>
+        <div id="cart-lang-container">
+          <div id="lang-switcher">
+            <span class="lang-button" id="russian-lang">ru</span>
+            <span> / </span>
+            <span class="lang-button" id="english-lang">en</span>
+          </div>
+          <img src="./assets/images/cart.svg" id="cart-button" alt="cart">
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="full-width-container black">
+    <div class="content-container" id="home">
+      <h2 id="title-greetings">Let's play</h2>
+    </div>
+  </div>
+  <div class="full-width-container white" id="products">
+    <div class="content-container white">
+      <h3 id="title-products">Products</h3>
+      <div id="products-container">
+      </div>
+    </div>
+  </div>
+  <div class="full-width-container lightgray">
+    <div class="content-container">
+      <div id="about-contacts-container">
+        <div>
+          <h3 id="title-about">About</h3>
+          <div id="about-us">
+            // My name is Bialiak Dzmitry. I craft educational toys for children accordance to Maria Montessori development system.
+            // My mission is produce and provide affordable toys for any child on this planet.
+          </div>
+        </div>
+        <div>
+          <h3 id="title-contacts">Contacts</h3>
+          <div id="contacts">
+            <div class="contacts-row">
+              <img src="./assets/images/address.png" alt="address">12 Simanava Street, apartment 72, Mahilyow, 212036, Belarus</a>
+            </div>
+            <div class="contacts-row">
+              <img src="./assets/images/mail.png" alt="mail"><a href="mailto:mapletoysby@gmail.com">E-mail: mapletoysby@gmail.com</a>
+            </div>
+            <div class="contacts-row">
+              <img src="./assets/images/phone.png" alt="phone"><a href="tel:375293378667">Phone: +375 (29) 337-86-67</a>
+            </div>
+            <div class="contacts-row">
+              <img src="./assets/images/im.png" alt="im"><a href="tg://resolve?domain=dimmorpheus">Telegram: dimmorpheus</a>
+            </div>
+            <div class="contacts-row">
+              <img src="./assets/images/chat.png" alt="im"><a href="whatsapp:contact=375445719527">WhatsApp: dimmorpheus</a>
+            </div>
+            <div class="contacts-row">
+              <img src="./assets/images/instagram.png" alt="instagram"><a href="https://www.instagram.com/themapletoys/">Instagram: themapletoys</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="scripts/main.js"></script>
+
+</body>
+</html>
