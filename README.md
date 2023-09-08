@@ -1,3 +1,3 @@
 # MapleToys site
 
-https://dimmorpheus.github.io/MapleToys/
+https://dimmorpheus.github.io/MapleToysUS/
